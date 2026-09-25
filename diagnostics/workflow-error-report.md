@@ -6,7 +6,7 @@ This repository file keeps previous and current workflow failures together.
 
 Run ID: 36187349992
 
-Generated: 2026-09-25T20:42:46Z
+Generated: 2026-09-25T20:43:11Z
 
 ### Current primary errors
 ~~~text
@@ -8526,6 +8526,25 @@ Lint and production build	Production build	2026-09-25T20:40:56.7982460Z ##[error
 ### Run metadata
 ~~~json
 {"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:42:20Z","databaseId":36187349992,"displayTitle":"fix: simplify locked preview JSX branch","headSha":"ab51782b1e66b4427b7d02689c8a9c54034b32c9","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108244052114,"name":"Lint and production build","startedAt":"2026-09-25T20:42:45Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187349992/job/108244052114"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:42:44Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187349992"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36187349992 is still in progress; logs will be available when it is complete
+~~~
+
+---
+
+## Failure recorded 2026-09-25T20:43:11Z
+
+### Run metadata
+~~~json
+{"attempt":3,"conclusion":"","createdAt":"2026-09-25T20:42:20Z","databaseId":36187349992,"displayTitle":"fix: simplify locked preview JSX branch","headSha":"ab51782b1e66b4427b7d02689c8a9c54034b32c9","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108244183092,"name":"Lint and production build","startedAt":"2026-09-25T20:43:10Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187349992/job/108244183092"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:43:09Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187349992"}
 
 ~~~
 
