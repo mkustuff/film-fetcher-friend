@@ -48,7 +48,7 @@ export function CataloguePage({
   const label = mode === "series" ? "series" : mode === "free" ? "free titles" : "films";
   const icon = mode === "series" ? <Tv className="size-4" /> : <Film className="size-4" />;
   return (
-    <StreamingShell>
+    <StreamingShell backTo="/" backLabel="Home">
       <main id="main-content" className="min-h-[80vh] overflow-x-clip pb-16 pt-20 sm:pb-24 sm:pt-24">
         <header className="mx-auto max-w-[1600px] px-5 pt-8 sm:px-10 lg:px-14 lg:pt-12">
           <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,.65fr)]">
