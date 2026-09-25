@@ -8418,3 +8418,22 @@ Lint and production build	Production build	2026-09-25T20:36:49.9143416Z ##[error
 ~~~text
 run 36187089935 is still in progress; logs will be available when it is complete
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:40:42Z
+
+### Run metadata
+~~~json
+{"attempt":3,"conclusion":"","createdAt":"2026-09-25T20:39:42Z","databaseId":36187089935,"displayTitle":"fix: close locked preview fragment before fallback branch","headSha":"13213e8b78aa36c61f24fec112809e646d2af5e4","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108243376223,"name":"Lint and production build","startedAt":"2026-09-25T20:40:40Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187089935/job/108243376223"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:40:39Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187089935"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36187089935 is still in progress; logs will be available when it is complete
+~~~
