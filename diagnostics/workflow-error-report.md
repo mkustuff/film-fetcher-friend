@@ -4,9 +4,9 @@ This repository file keeps previous and current workflow failures together.
 
 ## Current failure
 
-Run ID: 36185512424
+Run ID: 36185575992
 
-Generated: 2026-09-25T20:24:46Z
+Generated: 2026-09-25T20:25:03Z
 
 ### Current primary errors
 ~~~text
@@ -7809,4 +7809,23 @@ run 36185512424 is still in progress; logs will be available when it is complete
 ### Full failed-step log
 ~~~text
 run 36185512424 is still in progress; logs will be available when it is complete
+~~~
+
+---
+
+## Failure recorded 2026-09-25T20:25:03Z
+
+### Run metadata
+~~~json
+{"attempt":1,"conclusion":"","createdAt":"2026-09-25T20:24:27Z","databaseId":36185575992,"displayTitle":"fix: close access-code JSX expression","headSha":"8979c96da0322b5a90f8a1c858932deb1616ceed","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:25:01Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185575992"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36185575992 is still in progress; logs will be available when it is complete
 ~~~
