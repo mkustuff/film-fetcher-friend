@@ -2,7 +2,7 @@ import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { ArrowLeft, Check, CircleAlert, Clock3, CreditCard, LockKeyhole, Mail, Phone, RefreshCw, ShieldCheck, Smartphone, Zap } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { broadcastAccessChanged, capturePayPalOrder, clearPlaybackCache, createPayPalOrder, paymentStatus, publicCatalogue, publicPaymentChannels, reconcilePayments, recoverPayment, resolveCatalogueKey, startPalplussPayment } from '@/lib/avant-backend'
+import { broadcastAccessChanged, capturePayPalOrder, clearPlaybackCache, createPayPalOrder, loginWithAccessCode, paymentStatus, publicCatalogue, publicPaymentChannels, reconcilePayments, recoverPayment, resolveCatalogueKey, startPalplussPayment } from '@/lib/avant-backend'
 import { knownProduct, productForLegacyContent } from '@/lib/backend-catalogue-map'
 import { optimizedArtwork } from '@/lib/episodes'
 import { customerToken } from '@/lib/google-auth'
@@ -66,6 +66,8 @@ function CheckoutRoute() {
     return { embedded: query.get('embedded') === '1', returnTo, origin: normalizePath(rawOrigin) || '/movies', originScroll: Number(query.get('originScroll') || 0) }
   })())
   const { embedded, returnTo, origin, originScroll } = checkoutQuery
+  const [accessCode, setAccessCode] = useState('')
+  const [verifyingAccessCode, setVerifyingAccessCode] = useState(false)
   const [email, setEmail] = useState('')
   const [mobile, setMobile] = useState('')
   const [mpesaCode, setMpesaCode] = useState('')
@@ -142,6 +144,41 @@ function CheckoutRoute() {
     else if (digits.length === 9 && (digits.startsWith('7') || digits.startsWith('1'))) local = '0' + digits
     if (!/^0(?:7|1)\d{8}$/.test(local)) return null
     return '254' + local.slice(1)
+  }
+
+  async function verifyAccessCode() {
+    const code = accessCode.trim().toUpperCase().replace(/\s/g, '')
+    if (!code) { setError('Enter the access code from your Avant payment email.'); return }
+    setVerifyingAccessCode(true); setError('')
+    try {
+      let deviceId = ''
+      try { deviceId = localStorage.getItem('avant_device_id') || '' } catch { /* unavailable */ }
+      if (!deviceId) {
+        deviceId = crypto.randomUUID()
+        try { localStorage.setItem('avant_device_id', deviceId) } catch { /* unavailable */ }
+      }
+      await loginWithAccessCode(code, deviceId, 'Avant Web')
+      try {
+        const { accessCodeStorage } = await import('../lib/access-code-storage')
+        const productKey = backendProductId || product?.id || productForLegacyContent(productId) || productId
+        accessCodeStorage.save(code, '', productKey, displayTitle)
+      } catch (storageError) {
+        console.warn('Could not save access code locally:', storageError)
+      }
+      broadcastAccessChanged({ source: 'access-code-checkout' })
+      clearPlaybackCache()
+      setAccessCode('')
+      const target = (returnTo || origin || '').trim()
+      if (target && target.startsWith('/') && !target.startsWith('//') && !target.startsWith('/checkout/')) {
+        await router.navigate({ to: target as any })
+      } else {
+        await router.navigate({ to: '/account' })
+      }
+    } catch (e: any) {
+      setError(e?.body?.error || e?.body?.message || e?.message || 'Access code not recognized. Check the code in your payment email.')
+    } finally {
+      setVerifyingAccessCode(false)
+    }
   }
 
   async function start() {
@@ -358,6 +395,33 @@ function CheckoutRoute() {
             {reference && <p className="mt-5 truncate font-mono text-[10px] text-white/25">Ref {reference}</p>}
             <p className="mt-5 text-xs text-white/35">Keep this screen open · don't pay twice</p>
           </div> : <>
+            <section className="mb-7 rounded-2xl border border-primary/25 bg-primary/[.06] p-4">
+              <div className="flex items-start gap-3">
+                <LockKeyhole className="mt-0.5 size-4 shrink-0 text-primary" />
+                <div className="min-w-0">
+                  <p className="text-[11px] font-bold uppercase tracking-[.16em] text-primary">Access code verification</p>
+                  <p className="mt-1 text-sm font-semibold text-white">Already paid? Check your email.</p>
+                  <p className="mt-1 text-xs leading-5 text-white/45">Enter the access code sent to you after payment. We’ll save it on this device so you can access your purchase without paying again.</p>
+                </div>
+              </div>
+              <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+                <input
+                  value={accessCode}
+                  onChange={(event) => setAccessCode(event.target.value.toUpperCase())}
+                  onKeyDown={(event) => { if (event.key === 'Enter') void verifyAccessCode() }}
+                  placeholder="Access code from your email"
+                  aria-label="Access code"
+                  autoCapitalize="characters"
+                  autoComplete="one-time-code"
+                  className="min-h-11 min-w-0 flex-1 rounded-lg border border-white/10 bg-black/30 px-3 text-sm font-mono tracking-wider text-white outline-none placeholder:text-white/25 focus:border-primary"
+                />
+                <Button type="button" onClick={() => void verifyAccessCode()} disabled={verifyingAccessCode || !accessCode.trim()} className="min-h-11 rounded-lg px-5 font-bold">
+                  {verifyingAccessCode ? 'Verifying…' : 'Verify access code'}
+                </Button>
+              </div>
+              <p className="mt-2 text-[11px] text-white/30">Paid already? Look in your email for the Avant access code before starting another payment.</p>
+            </section>
+
             <div>
               <label htmlFor="avant-email" className="text-[11px] font-bold uppercase tracking-[.16em] text-white/50">Email</label>
               <div className="mt-2 flex min-h-12 items-center gap-3 border-b border-white/20 bg-transparent transition focus-within:border-primary">
