@@ -7946,3 +7946,22 @@ Lint and production build	Production build	2026-09-25T20:25:29.5119046Z }^[[39m
 Lint and production build	Production build	2026-09-25T20:25:29.5808084Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T20:25:29.5823156Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:26:36Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:25:20Z","databaseId":36185664885,"displayTitle":"fix: close preview overlay JSX container","headSha":"72c0e967f2aed88e4b69e44c9a64fc7d8f922ff4","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:26:34Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185664885"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36185664885 is still in progress; logs will be available when it is complete
+~~~
