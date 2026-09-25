@@ -10,7 +10,6 @@ import {
 } from "@/lib/watch-progress";
 import { getWatchProgress } from "@/lib/avant-backend";
 import { customerToken } from "@/lib/google-auth";
-import { ArtworkImage } from "./ArtworkImage";
 
 type ProgressRow = {
   item: CatalogueTitle;
@@ -96,10 +95,8 @@ export function ContinueWatching() {
               className="group relative w-[72vw] max-w-[18rem] shrink-0 snap-start min-[420px]:w-[64vw] sm:w-[18rem] sm:max-w-none lg:w-[21rem] rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               <div className="relative aspect-video overflow-hidden rounded-md bg-surface">
-                <ArtworkImage
-                  src={episode.poster}
-                  vimeoVideoId={episode.vimeoVideoId}
-                  fallbacks={[item.backdrop, item.artwork]}
+                <img
+                  src={episode.poster ?? item.artwork}
                   alt=""
                   loading="lazy"
                   className="size-full object-cover transition duration-300 group-hover:scale-105"
@@ -118,7 +115,7 @@ export function ContinueWatching() {
               </div>
               <p className="mt-2 text-sm font-bold">{item.title}</p>
               <p className="text-xs text-muted-foreground">
-                Episode {episode.episodeNumber ?? index + 1} ·{" "}
+                Episode {index + 1} ·{" "}
                 {percent !== null
                   ? `${Math.round(percent)}% watched`
                   : `Resume at ${formatWatchTime(entry.seconds)}`}
