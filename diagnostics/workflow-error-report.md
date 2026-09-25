@@ -4,9 +4,9 @@ This repository file keeps previous and current workflow failures together.
 
 ## Current failure
 
-Run ID: 36185732063
+Run ID: 36185664885
 
-Generated: 2026-09-25T20:26:55Z
+Generated: 2026-09-25T20:27:13Z
 
 ### Current primary errors
 ~~~text
@@ -7998,4 +7998,22 @@ run 36185664885 is still in progress; logs will be available when it is complete
 ### Full failed-step log
 ~~~text
 run 36185732063 is still in progress; logs will be available when it is complete
+~~~
+
+---
+
+## Failure recorded 2026-09-25T20:27:13Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"failure","createdAt":"2026-09-25T20:25:20Z","databaseId":36185664885,"displayTitle":"fix: close preview overlay JSX container","headSha":"72c0e967f2aed88e4b69e44c9a64fc7d8f922ff4","jobs":[{"completedAt":"2026-09-25T20:27:03Z","conclusion":"failure","databaseId":108238723126,"name":"Lint and production build","startedAt":"2026-09-25T20:26:47Z","status":"completed","steps":[{"completedAt":"2026-09-25T20:26:49Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-09-25T20:26:47Z","status":"completed"},{"completedAt":"2026-09-25T20:26:50Z","conclusion":"success","name":"Checkout","number":2,"startedAt":"2026-09-25T20:26:49Z","status":"completed"},{"completedAt":"2026-09-25T20:26:52Z","conclusion":"success","name":"Setup Bun","number":3,"startedAt":"2026-09-25T20:26:50Z","status":"completed"},{"completedAt":"2026-09-25T20:26:55Z","conclusion":"success","name":"Install dependencies","number":4,"startedAt":"2026-09-25T20:26:52Z","status":"completed"},{"completedAt":"2026-09-25T20:27:01Z","conclusion":"failure","name":"Production build","number":5,"startedAt":"2026-09-25T20:26:55Z","status":"completed"},{"completedAt":"2026-09-25T20:27:01Z","conclusion":"skipped","name":"Post Setup Bun","number":9,"startedAt":"2026-09-25T20:27:01Z","status":"completed"},{"completedAt":"2026-09-25T20:27:01Z","conclusion":"success","name":"Post Checkout","number":10,"startedAt":"2026-09-25T20:27:01Z","status":"completed"},{"completedAt":"2026-09-25T20:27:01Z","conclusion":"success","name":"Complete job","number":11,"startedAt":"2026-09-25T20:27:01Z","status":"completed"}],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185664885/job/108238723126"}],"name":"Avant Movies CI","status":"completed","updatedAt":"2026-09-25T20:27:04Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185664885"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
 ~~~
