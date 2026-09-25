@@ -8607,3 +8607,22 @@ Lint and production build	Production build	2026-09-25T20:43:27.5969742Z }^[[39m
 Lint and production build	Production build	2026-09-25T20:43:27.6808727Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T20:43:27.6825697Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:47:19Z
+
+### Run metadata
+~~~json
+{"attempt":3,"conclusion":"","createdAt":"2026-09-25T20:46:17Z","databaseId":36187742640,"displayTitle":"fix: close locked preview fragment before fallback","headSha":"c654de029ffe37982bf47687a26c22b0019ee589","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108245450508,"name":"Lint and production build","startedAt":"2026-09-25T20:47:10Z","status":"in_progress","steps":[{"completedAt":"2026-09-25T20:47:12Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-09-25T20:47:11Z","status":"completed"},{"completedAt":"2026-09-25T20:47:13Z","conclusion":"success","name":"Checkout","number":2,"startedAt":"2026-09-25T20:47:12Z","status":"completed"},{"completedAt":"2026-09-25T20:47:14Z","conclusion":"success","name":"Setup Bun","number":3,"startedAt":"2026-09-25T20:47:13Z","status":"completed"},{"completedAt":"2026-09-25T20:47:17Z","conclusion":"success","name":"Install dependencies","number":4,"startedAt":"2026-09-25T20:47:14Z","status":"completed"},{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","name":"Production build","number":5,"startedAt":"2026-09-25T20:47:17Z","status":"in_progress"},{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","name":"Post Setup Bun","number":9,"startedAt":"0001-01-01T00:00:00Z","status":"pending"},{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","name":"Post Checkout","number":10,"startedAt":"0001-01-01T00:00:00Z","status":"pending"}],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187742640/job/108245450508"}],"name":"Avant Movies CI","status":"in_progress","updatedAt":"2026-09-25T20:47:14Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36187742640"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36187742640 is still in progress; logs will be available when it is complete
+~~~
