@@ -7672,3 +7672,22 @@ Lint and production build	Production build	2026-09-25T17:53:54.7018352Z ##[error
 ~~~text
 run 36170156226 is still in progress; logs will be available when it is complete
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T17:56:21Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T17:55:28Z","databaseId":36170156226,"displayTitle":"fix: correct watch route preview JSX nesting","headSha":"3aeb49e97f6baa4876b712871cfcedc743d7bd0b","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T17:56:18Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36170156226"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36170156226 is still in progress; logs will be available when it is complete
+~~~
