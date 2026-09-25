@@ -7776,3 +7776,22 @@ Lint and production build	Production build	2026-09-25T17:56:38.2577446Z ##[error
 ~~~text
 run 36185512424 is still in progress; logs will be available when it is complete
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:24:46Z
+
+### Run metadata
+~~~json
+{"attempt":3,"conclusion":"","createdAt":"2026-09-25T20:23:47Z","databaseId":36185512424,"displayTitle":"fix: close preview JSX branch correctly","headSha":"8c3b9467d2980ad47d55fdb411c14a82422bfb65","jobs":[],"name":"Avant Movies CI","status":"pending","updatedAt":"2026-09-25T20:24:43Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185512424"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36185512424 is still in progress; logs will be available when it is complete
+~~~
