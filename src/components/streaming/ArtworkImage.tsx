@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const PLACEHOLDER = "/avant-movies-logo.png";
 const vimeoThumbnailCache = new Map<string, string>();
@@ -47,12 +47,10 @@ export function ArtworkImage({
 }) {
   const [vimeoThumbnail, setVimeoThumbnail] = useState("");
   const [sourceIndex, setSourceIndex] = useState(0);
-  const failedSources = useRef(new Set<string>());
 
   useEffect(() => {
     let active = true;
     setSourceIndex(0);
-    failedSources.current.clear();
     if (!vimeoVideoId || String(src || "").includes("i.vimeocdn.com/")) {
       setVimeoThumbnail("");
       return () => { active = false; };
@@ -70,7 +68,6 @@ export function ArtworkImage({
   const activeSource = sources[sourceIndex] || PLACEHOLDER;
 
   const handleError = () => {
-    failedSources.current.add(activeSource);
     setSourceIndex((current) => Math.min(current + 1, Math.max(0, sources.length - 1)));
   };
 
