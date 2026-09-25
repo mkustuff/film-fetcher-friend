@@ -7181,3 +7181,22 @@ run 36169509816 is still in progress; logs will be available when it is complete
 ~~~text
 run 36169542079 is still in progress; logs will be available when it is complete
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T17:50:36Z
+
+### Run metadata
+~~~json
+{"attempt":3,"conclusion":"","createdAt":"2026-09-25T17:49:16Z","databaseId":36169509816,"displayTitle":"Do not restore unrelated saved access codes","headSha":"3c775746cc09745e4e25106d203f5ab261214cdb","jobs":[],"name":"Avant Movies CI","status":"pending","updatedAt":"2026-09-25T17:50:31Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36169509816"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36169509816 is still in progress; logs will be available when it is complete
+~~~
