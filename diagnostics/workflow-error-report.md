@@ -4,12 +4,20 @@ This repository file keeps previous and current workflow failures together.
 
 ## Current failure
 
-Run ID: 36169542079
+Run ID: 36169509816
 
-Generated: 2026-09-25T17:50:52Z
+Generated: 2026-09-25T17:51:19Z
 
 ### Current primary errors
 ~~~text
+Lint and production build	Production build	2026-09-25T17:51:02.0209125Z Error: Error transforming route file /home/runner/work/film-fetcher-friend/film-fetcher-friend/src/routes/watch.$contentId.tsx: SyntaxError: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (51:3911)
+Lint and production build	Production build	2026-09-25T17:51:02.1866277Z ^[[31m✗^[[39m Build failed in 156ms
+Lint and production build	Production build	2026-09-25T17:51:02.1872773Z ^[[31mBuild failed with 1 error:
+Lint and production build	Production build	2026-09-25T17:51:02.1873892Z Error: Crawling result not available
+Lint and production build	Production build	2026-09-25T17:51:02.1882692Z     at aggregateBindingErrorsIntoJsError (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:48:18)
+Lint and production build	Production build	2026-09-25T17:51:02.1884991Z     at unwrapBindingResult (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:18:128)
+Lint and production build	Production build	2026-09-25T17:51:02.2751885Z error: script "build" exited with code 1
+Lint and production build	Production build	2026-09-25T17:51:02.2769693Z ##[error]Process completed with exit code 1.
 ~~~
 
 ## Previous + current error history
@@ -7233,4 +7241,70 @@ run 36169509816 is still in progress; logs will be available when it is complete
 ### Full failed-step log
 ~~~text
 run 36169542079 is still in progress; logs will be available when it is complete
+~~~
+
+---
+
+## Failure recorded 2026-09-25T17:51:19Z
+
+### Run metadata
+~~~json
+{"attempt":3,"conclusion":"failure","createdAt":"2026-09-25T17:49:16Z","databaseId":36169509816,"displayTitle":"Do not restore unrelated saved access codes","headSha":"3c775746cc09745e4e25106d203f5ab261214cdb","jobs":[{"completedAt":"2026-09-25T17:51:04Z","conclusion":"failure","databaseId":108185822222,"name":"Lint and production build","startedAt":"2026-09-25T17:50:46Z","status":"completed","steps":[{"completedAt":"2026-09-25T17:50:47Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-09-25T17:50:47Z","status":"completed"},{"completedAt":"2026-09-25T17:50:48Z","conclusion":"success","name":"Checkout","number":2,"startedAt":"2026-09-25T17:50:47Z","status":"completed"},{"completedAt":"2026-09-25T17:50:50Z","conclusion":"success","name":"Setup Bun","number":3,"startedAt":"2026-09-25T17:50:48Z","status":"completed"},{"completedAt":"2026-09-25T17:50:53Z","conclusion":"success","name":"Install dependencies","number":4,"startedAt":"2026-09-25T17:50:50Z","status":"completed"},{"completedAt":"2026-09-25T17:51:02Z","conclusion":"failure","name":"Production build","number":5,"startedAt":"2026-09-25T17:50:53Z","status":"completed"},{"completedAt":"2026-09-25T17:51:02Z","conclusion":"skipped","name":"Post Setup Bun","number":9,"startedAt":"2026-09-25T17:51:02Z","status":"completed"},{"completedAt":"2026-09-25T17:51:02Z","conclusion":"success","name":"Post Checkout","number":10,"startedAt":"2026-09-25T17:51:02Z","status":"completed"},{"completedAt":"2026-09-25T17:51:02Z","conclusion":"success","name":"Complete job","number":11,"startedAt":"2026-09-25T17:51:02Z","status":"completed"}],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36169509816/job/108185822222"}],"name":"Avant Movies CI","status":"completed","updatedAt":"2026-09-25T17:51:05Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36169509816"}
+
+~~~
+
+### Primary errors
+~~~text
+Lint and production build	Production build	2026-09-25T17:51:02.0209125Z Error: Error transforming route file /home/runner/work/film-fetcher-friend/film-fetcher-friend/src/routes/watch.$contentId.tsx: SyntaxError: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (51:3911)
+Lint and production build	Production build	2026-09-25T17:51:02.1866277Z ^[[31m✗^[[39m Build failed in 156ms
+Lint and production build	Production build	2026-09-25T17:51:02.1872773Z ^[[31mBuild failed with 1 error:
+Lint and production build	Production build	2026-09-25T17:51:02.1873892Z Error: Crawling result not available
+Lint and production build	Production build	2026-09-25T17:51:02.1882692Z     at aggregateBindingErrorsIntoJsError (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:48:18)
+Lint and production build	Production build	2026-09-25T17:51:02.1884991Z     at unwrapBindingResult (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:18:128)
+Lint and production build	Production build	2026-09-25T17:51:02.2751885Z error: script "build" exited with code 1
+Lint and production build	Production build	2026-09-25T17:51:02.2769693Z ##[error]Process completed with exit code 1.
+~~~
+
+### Full failed-step log
+~~~text
+Lint and production build	Production build	﻿2026-09-25T17:50:53.4410244Z ##[group]Run bun run build
+Lint and production build	Production build	2026-09-25T17:50:53.4410603Z ^[[36;1mbun run build^[[0m
+Lint and production build	Production build	2026-09-25T17:50:53.4476008Z shell: /usr/bin/bash -e {0}
+Lint and production build	Production build	2026-09-25T17:50:53.4476387Z ##[endgroup]
+Lint and production build	Production build	2026-09-25T17:50:53.4616410Z $ node scripts/generate-seo.mjs && vite build
+Lint and production build	Production build	2026-09-25T17:50:59.3007036Z SEO: generated robots.txt, sitemap index, pages-sitemap.xml, video-sitemap.xml and image-sitemap.xml for https://www.avantcinematic.com (62 URLs, 41 videos, 44 image pages).
+Lint and production build	Production build	2026-09-25T17:51:01.7747311Z ^[[33mThe plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the ^[[1mresolve.tsconfigPaths^[[22m option. You can remove the plugin and set ^[[1mresolve.tsconfigPaths: true^[[22m in your Vite config instead.^[[39m
+Lint and production build	Production build	2026-09-25T17:51:02.0209125Z Error: Error transforming route file /home/runner/work/film-fetcher-friend/film-fetcher-friend/src/routes/watch.$contentId.tsx: SyntaxError: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (51:3911)
+Lint and production build	Production build	2026-09-25T17:51:02.0231690Z     at file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/@tanstack/router-generator/dist/esm/generator.js:143:13
+Lint and production build	Production build	2026-09-25T17:51:02.0238014Z     at async generate (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:39:4)
+Lint and production build	Production build	2026-09-25T17:51:02.0240629Z     at async BasicMinimalPluginContext.configResolved (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:56:4)
+Lint and production build	Production build	2026-09-25T17:51:02.0242292Z     at async Promise.all (index 5)
+Lint and production build	Production build	2026-09-25T17:51:02.0243420Z     at async resolveConfig (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/vite/dist/node/chunks/node.js:35909:2)
+Lint and production build	Production build	2026-09-25T17:51:02.0245218Z     at async createBuilder (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/vite/dist/node/chunks/node.js:33458:17)
+Lint and production build	Production build	2026-09-25T17:51:02.0247386Z     at async CAC.<anonymous> (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/vite/dist/node/cli.js:765:19)
+Lint and production build	Production build	2026-09-25T17:51:02.0297743Z ^[[36mvite v8.1.5 ^[[32mbuilding client environment for production...^[[36m^[[39m
+Lint and production build	Production build	2026-09-25T17:51:02.0447288Z ^[[2K
+Lint and production build	Production build	2026-09-25T17:51:02.1860406Z transforming...✓ 178 modules transformed.
+Lint and production build	Production build	2026-09-25T17:51:02.1866277Z ^[[31m✗^[[39m Build failed in 156ms
+Lint and production build	Production build	2026-09-25T17:51:02.1872155Z ^[[31merror during build:
+Lint and production build	Production build	2026-09-25T17:51:02.1872773Z ^[[31mBuild failed with 1 error:
+Lint and production build	Production build	2026-09-25T17:51:02.1873086Z 
+Lint and production build	Production build	2026-09-25T17:51:02.1873349Z [plugin tanstack-start:route-tree-client-plugin]
+Lint and production build	Production build	2026-09-25T17:51:02.1873892Z Error: Crawling result not available
+Lint and production build	Production build	2026-09-25T17:51:02.1875254Z     at LoadPluginContextImpl.handler (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/@tanstack/start-plugin-core/dist/esm/vite/start-router-plugin/plugin.js:69:32)
+Lint and production build	Production build	2026-09-25T17:51:02.1877838Z     at async plugin (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/bindingify-input-options-EnUlEF0T.mjs:1569:16)
+Lint and production build	Production build	2026-09-25T17:51:02.1880417Z     at async plugin.<computed> (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/bindingify-input-options-EnUlEF0T.mjs:1906:12)^[[31m
+Lint and production build	Production build	2026-09-25T17:51:02.1882692Z     at aggregateBindingErrorsIntoJsError (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:48:18)
+Lint and production build	Production build	2026-09-25T17:51:02.1884991Z     at unwrapBindingResult (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:18:128)
+Lint and production build	Production build	2026-09-25T17:51:02.1887081Z     at #build (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/rolldown-DP_p9pd3.mjs:132:34)
+Lint and production build	Production build	2026-09-25T17:51:02.1888899Z     at async buildEnvironment (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/vite/dist/node/chunks/node.js:33061:66)
+Lint and production build	Production build	2026-09-25T17:51:02.1890980Z     at async Object.build (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/vite/dist/node/chunks/node.js:33483:19)
+Lint and production build	Production build	2026-09-25T17:51:02.1893005Z     at async buildStartViteEnvironments (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/@tanstack/start-plugin-core/dist/esm/vite/planning.js:95:23)
+Lint and production build	Production build	2026-09-25T17:51:02.1895234Z     at async Object.buildApp (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/@tanstack/start-plugin-core/dist/esm/vite/plugin.js:113:8)
+Lint and production build	Production build	2026-09-25T17:51:02.1897363Z     at async Object.buildApp (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/vite/dist/node/chunks/node.js:33475:6)
+Lint and production build	Production build	2026-09-25T17:51:02.1899092Z     at async CAC.<anonymous> (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/vite/dist/node/cli.js:776:3) {
+Lint and production build	Production build	2026-09-25T17:51:02.1900161Z   errors: [Getter/Setter]
+Lint and production build	Production build	2026-09-25T17:51:02.1900625Z }^[[39m
+Lint and production build	Production build	2026-09-25T17:51:02.2751885Z error: script "build" exited with code 1
+Lint and production build	Production build	2026-09-25T17:51:02.2769693Z ##[error]Process completed with exit code 1.
 ~~~
