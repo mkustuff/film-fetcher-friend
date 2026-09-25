@@ -10,7 +10,7 @@ export function DiscoveryGrid({ items, badgeLabel }: { items: CatalogueTitle[]; 
           <div className="mt-2 hidden min-w-0 px-0.5 sm:block sm:mt-3">
             <h3 className="truncate text-lg font-extrabold leading-tight tracking-[-0.02em] sm:text-xl">{item.title}</h3>
             <p className="mt-2 flex flex-wrap items-center gap-x-2.5 text-sm font-medium text-muted-foreground">
-              <span>{item.type === "series" ? (new Set((item.episodes ?? []).map((episode) => episode.season ?? 1)).size > 1 ? `${new Set((item.episodes ?? []).map((episode) => episode.season ?? 1)).size} seasons` : `${item.episodes?.length || 1} episode${item.episodes?.length === 1 ? "" : "s"}`) : "Film"}</span>
+              <span>{item.type === "series" ? `${item.episodes?.length || 1} episode${item.episodes?.length === 1 ? "" : "s"}` : "Film"}</span>
               {item.year ? <span>{item.year}</span> : null}
               {item.genres[0] ? <span>{item.genres[0]}</span> : null}
             </p>
