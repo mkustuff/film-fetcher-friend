@@ -22,8 +22,15 @@ export function episodeContentId(item: Pick<CatalogueTitle, "slug">, episode: Ep
 }
 
 export function orderedEpisodes(item: Pick<CatalogueTitle, "slug" | "episodes">) {
+  const seen = new Set<string>();
   return (item.episodes ?? [])
     .map((episode, sourceIndex) => ({ episode, sourceIndex }))
+    .filter(({episode,sourceIndex}) => {
+      const key = `${episode.season ?? 1}:${episode.episodeNumber ?? sourceIndex + 1}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
     .sort((a, b) =>
       (a.episode.season ?? 1) - (b.episode.season ?? 1) ||
       (a.episode.episodeNumber ?? a.sourceIndex + 1) - (b.episode.episodeNumber ?? b.sourceIndex + 1) ||
@@ -43,7 +50,7 @@ export function mapResolvedEpisodes(rawEpisodes: unknown[], rawSeasons: unknown[
   const seasonNumber = (seasonId: unknown) =>
     numberValue(seasons.find((season) => season["id"] === seasonId)?.["season_number"]) ?? 1;
 
-  return rawEpisodes
+  const mapped = rawEpisodes
     .filter((value): value is RawRecord => Boolean(value && typeof value === "object"))
     .map((raw, sourceIndex) => {
       const seconds = numberValue(raw["duration_seconds"]);
@@ -84,6 +91,13 @@ export function mapResolvedEpisodes(rawEpisodes: unknown[], rawSeasons: unknown[
       } satisfies Episode;
     })
     .sort((a, b) => (a.season ?? 1) - (b.season ?? 1) || (a.episodeNumber ?? 0) - (b.episodeNumber ?? 0));
+  const byEpisode = new Map<string, Episode>();
+  for (const episode of mapped) {
+    const key = `${episode.season ?? 1}:${episode.episodeNumber ?? 0}`;
+    const current = byEpisode.get(key);
+    if (!current || (!current.poster?.includes("i.vimeocdn.com/") && episode.poster?.includes("i.vimeocdn.com/"))) byEpisode.set(key, episode);
+  }
+  return [...byEpisode.values()].sort((a,b)=>(a.season??1)-(b.season??1)||(a.episodeNumber??0)-(b.episodeNumber??0));
 }
 
 export function episodeLabel(episode: Episode, fallbackNumber: number) {
