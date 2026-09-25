@@ -8295,3 +8295,22 @@ Lint and production build	Production build	2026-09-25T20:32:50.5795087Z }^[[39m
 Lint and production build	Production build	2026-09-25T20:32:50.6622358Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T20:32:50.6639198Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:36:05Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:35:38Z","databaseId":36186697995,"displayTitle":"fix: parenthesize preview ternary JSX branches","headSha":"6b67799d6ff093a25d19059ec06acf4389da7ef4","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:36:04Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36186697995"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36186697995 is still in progress; logs will be available when it is complete
+~~~
