@@ -37,6 +37,14 @@ export const accessCodeStorage = {
     }
   },
 
+  getLatest: (): StoredAccessCode | null => {
+    try {
+      return accessCodeStorage.getAll().sort((a, b) => b.storedAt - a.storedAt)[0] ?? null;
+    } catch {
+      return null;
+    }
+  },
+
   getByProductId: (productId: string): StoredAccessCode | null => {
     if (!productId) return null;
     try {
