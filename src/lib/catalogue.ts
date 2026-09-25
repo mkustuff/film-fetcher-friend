@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { publicCatalogue } from "./avant-backend";
 import { catalogue, type CatalogueTitle, type Episode } from "./site-data";
-import { mapResolvedEpisodes } from "./episodes";
 
 type PublicTitle = Record<string, unknown>;
 
@@ -85,7 +84,7 @@ export function mapPublicTitle(raw: PublicTitle): CatalogueTitle | null {
   const previewStart = numberValue(raw["preview_start_seconds"]);
   const previewDuration = numberValue(raw["preview_duration_seconds"]);
   const liveEpisodes = Array.isArray(raw["episodes"])
-    ? mapResolvedEpisodes(raw["episodes"], Array.isArray(raw["seasons"]) ? raw["seasons"] : [])
+    ? raw["episodes"].map(mapPublicEpisode).filter((episode): episode is Episode => Boolean(episode))
     : undefined;
   const accessRequired = typeof raw["access_required"] === "boolean" ? raw["access_required"] : true;
   const movieEpisode: Episode[] | undefined =
