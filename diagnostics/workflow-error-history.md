@@ -8730,3 +8730,22 @@ run 36188794217 is still in progress; logs will be available when it is complete
 ~~~text
 run 36188794217 is still in progress; logs will be available when it is complete
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:58:22Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:57:49Z","databaseId":36188845478,"displayTitle":"fix: use compatible clipboard writeText API","headSha":"066907a473ce2a416bb70e701db2163ec4e9a7b2","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:58:21Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36188845478"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36188845478 is still in progress; logs will be available when it is complete
+~~~
