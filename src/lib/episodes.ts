@@ -34,13 +34,46 @@ export function orderedEpisodes(item: Pick<CatalogueTitle, "slug" | "episodes">)
     }));
 }
 
+function episodeCandidateScore(raw: RawRecord, season: number) {
+  const status = stringValue(raw["status"])?.toLowerCase();
+  const thumbnail = stringValue(raw["thumbnail_url"]) || "";
+  const vimeoVideoId = stringValue(raw["vimeo_video_id"]) || "";
+  let score = 0;
+  if (status === "published") score += 100;
+  if (vimeoVideoId) score += 20;
+  if (thumbnail.includes("i.vimeocdn.com/")) score += 40;
+  if (thumbnail) score += 5;
+  if (stringValue(raw["legacy_key"])) score += 5;
+  score += season > 0 ? 1 : 0;
+  return score;
+}
+
+function dedupeRawEpisodes(rawEpisodes: unknown[], rawSeasons: RawRecord[]) {
+  const seasonNumber = (seasonId: unknown) =>
+    numberValue(rawSeasons.find((season) => season["id"] === seasonId)?.["season_number"]) ?? 1;
+  const selected = new Map<string, { raw: RawRecord; season: number; sourceIndex: number; score: number }>();
+
+  rawEpisodes
+    .filter((value): value is RawRecord => Boolean(value && typeof value === "object"))
+    .forEach((raw, sourceIndex) => {
+      const season = numberValue(raw["season_number"]) ?? seasonNumber(raw["season_id"]);
+      const episodeNumber = numberValue(raw["episode_number"]) ?? sourceIndex + 1;
+      const key = `${season}:${episodeNumber}`;
+      const candidate = { raw, season, sourceIndex, score: episodeCandidateScore(raw, season) };
+      const previous = selected.get(key);
+      if (!previous || candidate.score > previous.score) selected.set(key, candidate);
+    });
+
+  return [...selected.values()]
+    .sort((a, b) => a.season - b.season || (numberValue(a.raw["episode_number"]) ?? a.sourceIndex + 1) - (numberValue(b.raw["episode_number"]) ?? b.sourceIndex + 1) || a.sourceIndex - b.sourceIndex)
+    .map(({ raw }) => raw);
+}
+
 export function mapResolvedEpisodes(rawEpisodes: unknown[], rawSeasons: unknown[] = []): Episode[] {
   const seasons = rawSeasons.filter((value): value is RawRecord => Boolean(value && typeof value === "object"));
-  const seasonNumber = (seasonId: unknown) =>
-    numberValue(seasons.find((season) => season["id"] === seasonId)?.["season_number"]) ?? 1;
+  const deduped = dedupeRawEpisodes(rawEpisodes, seasons);
 
-  return rawEpisodes
-    .filter((value): value is RawRecord => Boolean(value && typeof value === "object"))
+  return deduped
     .map((raw, sourceIndex) => {
       const seconds = numberValue(raw["duration_seconds"]);
       const id = stringValue(raw["id"]);
