@@ -136,7 +136,19 @@ function CheckoutRoute() {
     if (embedded) window.parent.postMessage({ type: 'avant-payment-success', reference: referenceValue, returnTo }, window.location.origin)
     else await router.navigate({ to: '/payment/success', search: { reference: referenceValue, returnTo: returnTo || origin, origin, originScroll: String(originScroll) } })
   }
-  function handleTerminal(state: PaymentUiState) { setBusy(false); setStage(state); setError(paymentStateMessage(state)) }
+  function handleTerminal(state: PaymentUiState) {
+    // A cancelled/failed attempt must never poison the next checkout with the
+    // same idempotency key. A new press of Pay intentionally creates a fresh
+    // provider request and therefore a fresh prompt.
+    try {
+      sessionStorage.removeItem(`avant_payment_${productId}`)
+      sessionStorage.removeItem(`avant_payment_key_${productId}`)
+    } catch { /* unavailable */ }
+    setReference('')
+    setBusy(false)
+    setStage('ready')
+    setError(`${paymentStateMessage(state)} You can retry the payment now.`)
+  }
   function normalizeKenyanMobile(value: string) {
     const digits = value.replace(/\D/g, '')
     let local = digits
@@ -208,9 +220,10 @@ function CheckoutRoute() {
     try {
       const token = await customerToken(false)
       const resolved = backendProductId || product?.id || productForLegacyContent(productId) || productId
-      let key = ''
-      try { key = sessionStorage.getItem(`avant_payment_key_${productId}`) || '' } catch { /* unavailable */ }
-      if (!key) { key = crypto.randomUUID(); try { sessionStorage.setItem(`avant_payment_key_${productId}`, key) } catch { /* unavailable */ } }
+      // Every explicit Pay click is a new payment attempt. Never reuse an
+      // idempotency key from an older/cancelled M-PESA attempt.
+      let key = crypto.randomUUID()
+      try { sessionStorage.setItem(`avant_payment_key_${productId}`, key) } catch { /* unavailable */ }
       const result = await startPalplussPayment(token, { productId: resolved, phone: normalizedMobile, email: email.trim().toLowerCase(), idempotencyKey: key })
       const nextReference = result.reference || result.payment?.reference
       if (!nextReference) throw new Error('Payment was not started.')
@@ -265,9 +278,10 @@ function CheckoutRoute() {
     try {
       const token = await customerToken(false)
       const resolved = product?.id || backendProductId || productForLegacyContent(productId) || productId
-      let key = ''
-      try { key = sessionStorage.getItem(`avant_paypal_key_${productId}`) || '' } catch { /* unavailable */ }
-      if (!key) { key = crypto.randomUUID(); try { sessionStorage.setItem(`avant_paypal_key_${productId}`, key) } catch { /* unavailable */ } }
+      // A cancelled PayPal order must not be reused. Each explicit checkout
+      // attempt gets a fresh idempotency key and therefore a fresh PayPal order.
+      let key = crypto.randomUUID()
+      try { sessionStorage.setItem(`avant_paypal_key_${productId}`, key) } catch { /* unavailable */ }
       const created = await createPayPalOrder(token, { productId: resolved, email: email.trim().toLowerCase(), idempotencyKey: key })
       if (!created?.reference || !created?.orderId) throw new Error('PayPal order was not created.')
       setReference(created.reference)
@@ -306,8 +320,20 @@ function CheckoutRoute() {
             setBusy(false); setStage('ready'); setError(e?.body?.error || e?.message || 'PayPal payment could not be confirmed.')
           }
         },
-        onCancel: () => { setBusy(false); setStage('ready'); setError('PayPal checkout was cancelled. You were not charged.') },
-        onError: (e: any) => { setBusy(false); setStage('ready'); setError(e?.message || 'PayPal checkout failed.') },
+        onCancel: () => {
+          try { sessionStorage.removeItem(`avant_paypal_key_${productId}`) } catch { /* unavailable */ }
+          setReference('')
+          setBusy(false)
+          setStage('ready')
+          setError('PayPal checkout was cancelled. You were not charged. You can try PayPal again now.')
+        },
+        onError: (e: any) => {
+          try { sessionStorage.removeItem(`avant_paypal_key_${productId}`) } catch { /* unavailable */ }
+          setReference('')
+          setBusy(false)
+          setStage('ready')
+          setError(e?.message || 'PayPal checkout failed. You can try again now.')
+        },
       }).render('#avant-paypal-buttons')
     } catch (e: any) {
       setBusy(false); setStage('ready'); setError(e?.body?.error || e?.body?.message || e?.message || 'Unable to start PayPal checkout.')
