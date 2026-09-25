@@ -6,7 +6,7 @@ This repository file keeps previous and current workflow failures together.
 
 Run ID: 36186697995
 
-Generated: 2026-09-25T20:36:05Z
+Generated: 2026-09-25T20:36:37Z
 
 ### Current primary errors
 ~~~text
@@ -8318,6 +8318,25 @@ Lint and production build	Production build	2026-09-25T20:32:50.6639198Z ##[error
 ### Run metadata
 ~~~json
 {"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:35:38Z","databaseId":36186697995,"displayTitle":"fix: parenthesize preview ternary JSX branches","headSha":"6b67799d6ff093a25d19059ec06acf4389da7ef4","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:36:04Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36186697995"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36186697995 is still in progress; logs will be available when it is complete
+~~~
+
+---
+
+## Failure recorded 2026-09-25T20:36:37Z
+
+### Run metadata
+~~~json
+{"attempt":3,"conclusion":"","createdAt":"2026-09-25T20:35:38Z","databaseId":36186697995,"displayTitle":"fix: parenthesize preview ternary JSX branches","headSha":"6b67799d6ff093a25d19059ec06acf4389da7ef4","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108241975984,"name":"Lint and production build","startedAt":"2026-09-25T20:36:35Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36186697995/job/108241975984"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:36:34Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36186697995"}
 
 ~~~
 
