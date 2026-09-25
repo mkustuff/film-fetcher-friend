@@ -7162,3 +7162,22 @@ Lint and production build	Production build	2026-09-25T15:42:10.1607229Z ##[error
 ~~~text
 run 36169509816 is still in progress; logs will be available when it is complete
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T17:50:08Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T17:49:35Z","databaseId":36169542079,"displayTitle":"Bypass transient catalogue miss on recovery retry","headSha":"7963d574cba3c07cadf3f7c2043fd5aea1985d93","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T17:50:07Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36169542079"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36169542079 is still in progress; logs will be available when it is complete
+~~~
