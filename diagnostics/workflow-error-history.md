@@ -8002,3 +8002,22 @@ run 36185732063 is still in progress; logs will be available when it is complete
 ### Full failed-step log
 ~~~text
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:27:36Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:26:02Z","databaseId":36185732063,"displayTitle":"fix: correct preview ternary JSX closure order","headSha":"971ae7076314a280c3480da5d875f8f35cdc25bf","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:27:34Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185732063"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36185732063 is still in progress; logs will be available when it is complete
+~~~
