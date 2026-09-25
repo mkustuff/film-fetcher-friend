@@ -13,6 +13,10 @@ export function optimizedArtwork(url?: string, width = 640) {
   return url;
 }
 
+export function episodeArtwork(episode: Pick<Episode, "poster" | "vimeoVideoId">, fallback?: string) {
+  return episode.poster || (episode.vimeoVideoId ? `https://vumbnail.com/${encodeURIComponent(episode.vimeoVideoId)}.jpg` : undefined) || fallback;
+}
+
 export function episodeContentId(item: Pick<CatalogueTitle, "slug">, episode: Episode, absoluteIndex: number) {
   return episode.legacyKey || episode.id || `${item.slug}-${absoluteIndex + 1}`;
 }
