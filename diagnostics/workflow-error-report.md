@@ -4,19 +4,12 @@ This repository file keeps previous and current workflow failures together.
 
 ## Current failure
 
-Run ID: 36143898336
+Run ID: 36155801854
 
-Generated: 2026-09-25T13:55:20Z
+Generated: 2026-09-25T15:41:24Z
 
 ### Current primary errors
 ~~~text
-Lint and production build	Production build	2026-09-25T13:55:07.8038217Z ^[[31m✗^[[39m Build failed in 2.68s
-Lint and production build	Production build	2026-09-25T13:55:07.8043557Z ^[[31mBuild failed with 1 error:
-Lint and production build	Production build	2026-09-25T13:55:07.8051371Z  ^[[38;5;240m  │^[[0m                                                 ╰──────────────────────── No such file or directory (os error 2)
-Lint and production build	Production build	2026-09-25T13:55:07.8053173Z     at aggregateBindingErrorsIntoJsError (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:48:18)
-Lint and production build	Production build	2026-09-25T13:55:07.8054749Z     at unwrapBindingResult (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:18:128)
-Lint and production build	Production build	2026-09-25T13:55:07.9066211Z error: script "build" exited with code 1
-Lint and production build	Production build	2026-09-25T13:55:07.9084184Z ##[error]Process completed with exit code 1.
 ~~~
 
 ## Previous + current error history
@@ -7086,4 +7079,23 @@ Lint and production build	Production build	2026-09-25T13:55:07.8063870Z   errors
 Lint and production build	Production build	2026-09-25T13:55:07.8064344Z }^[[39m
 Lint and production build	Production build	2026-09-25T13:55:07.9066211Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T13:55:07.9084184Z ##[error]Process completed with exit code 1.
+~~~
+
+---
+
+## Failure recorded 2026-09-25T15:41:24Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T15:40:51Z","databaseId":36155801854,"displayTitle":"Make access-code recovery a primary watch-page option","headSha":"fa966d39fb4d07a8e4b77f3b188f1a34c2757141","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108140098158,"name":"Lint and production build","startedAt":"2026-09-25T15:41:23Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36155801854/job/108140098158"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T15:41:22Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36155801854"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36155801854 is still in progress; logs will be available when it is complete
 ~~~

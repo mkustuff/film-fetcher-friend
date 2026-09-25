@@ -7065,3 +7065,22 @@ Lint and production build	Production build	2026-09-25T13:55:07.8064344Z }^[[39m
 Lint and production build	Production build	2026-09-25T13:55:07.9066211Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T13:55:07.9084184Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T15:41:24Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T15:40:51Z","databaseId":36155801854,"displayTitle":"Make access-code recovery a primary watch-page option","headSha":"fa966d39fb4d07a8e4b77f3b188f1a34c2757141","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108140098158,"name":"Lint and production build","startedAt":"2026-09-25T15:41:23Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36155801854/job/108140098158"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T15:41:22Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36155801854"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36155801854 is still in progress; logs will be available when it is complete
+~~~
