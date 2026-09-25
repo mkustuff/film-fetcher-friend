@@ -18,8 +18,9 @@ export const accessCodeStorage = {
       };
       localStorage.setItem(`avant_code_${code.toUpperCase()}`, JSON.stringify(entry));
       const all = accessCodeStorage.getAll();
-      all.push(entry);
-      localStorage.setItem('avant_codes_list', JSON.stringify(all));
+      const deduped = all.filter((item: StoredAccessCode) => item.code !== entry.code);
+      deduped.push(entry);
+      localStorage.setItem('avant_codes_list', JSON.stringify(deduped.slice(-20)));
       return true;
     } catch (e) {
       console.warn('Storage failed:', e);
@@ -33,6 +34,17 @@ export const accessCodeStorage = {
       return stored ? JSON.parse(stored) : [];
     } catch {
       return [];
+    }
+  },
+
+  getByProductId: (productId: string): StoredAccessCode | null => {
+    if (!productId) return null;
+    try {
+      return accessCodeStorage.getAll()
+        .filter((entry) => entry.productId === productId)
+        .sort((a, b) => b.storedAt - a.storedAt)[0] ?? null;
+    } catch {
+      return null;
     }
   },
 
