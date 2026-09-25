@@ -8087,3 +8087,22 @@ Lint and production build	Production build	2026-09-25T20:27:46.8504369Z }^[[39m
 Lint and production build	Production build	2026-09-25T20:27:46.8870506Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T20:27:46.8885779Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:28:45Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:28:18Z","databaseId":36185958838,"displayTitle":"chore: verify production build after JSX fix","headSha":"21df8a6f82faf27569584f55dae14cc5390ca7b1","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108239370696,"name":"Lint and production build","startedAt":"2026-09-25T20:28:43Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185958838/job/108239370696"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:28:43Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185958838"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36185958838 is still in progress; logs will be available when it is complete
+~~~
