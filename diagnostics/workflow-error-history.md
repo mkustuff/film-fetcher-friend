@@ -7417,3 +7417,22 @@ Lint and production build	Production build	2026-09-25T17:52:12.8105723Z }^[[39m
 Lint and production build	Production build	2026-09-25T17:52:12.8778482Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T17:52:12.8792454Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T17:52:42Z
+
+### Run metadata
+~~~json
+{"attempt":1,"conclusion":"","createdAt":"2026-09-25T17:52:03Z","databaseId":36169800640,"displayTitle":"Require access codes to match the current season or movie","headSha":"006d03f6c2e6033282cc32f623c277d68dd77c2d","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T17:52:41Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36169800640"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36169800640 is still in progress; logs will be available when it is complete
+~~~

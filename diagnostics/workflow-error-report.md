@@ -4,20 +4,12 @@ This repository file keeps previous and current workflow failures together.
 
 ## Current failure
 
-Run ID: 36169790678
+Run ID: 36169800640
 
-Generated: 2026-09-25T17:52:25Z
+Generated: 2026-09-25T17:52:42Z
 
 ### Current primary errors
 ~~~text
-Lint and production build	Production build	2026-09-25T17:52:12.6924524Z Error: Error transforming route file /home/runner/work/film-fetcher-friend/film-fetcher-friend/src/routes/watch.$contentId.tsx: SyntaxError: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (51:3911)
-Lint and production build	Production build	2026-09-25T17:52:12.8089533Z ^[[31m✗^[[39m Build failed in 112ms
-Lint and production build	Production build	2026-09-25T17:52:12.8093396Z ^[[31mBuild failed with 1 error:
-Lint and production build	Production build	2026-09-25T17:52:12.8093921Z Error: Crawling result not available
-Lint and production build	Production build	2026-09-25T17:52:12.8097386Z     at aggregateBindingErrorsIntoJsError (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:48:18)
-Lint and production build	Production build	2026-09-25T17:52:12.8098455Z     at unwrapBindingResult (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:18:128)
-Lint and production build	Production build	2026-09-25T17:52:12.8778482Z error: script "build" exited with code 1
-Lint and production build	Production build	2026-09-25T17:52:12.8792454Z ##[error]Process completed with exit code 1.
 ~~~
 
 ## Previous + current error history
@@ -7439,4 +7431,23 @@ Lint and production build	Production build	2026-09-25T17:52:12.8105310Z   errors
 Lint and production build	Production build	2026-09-25T17:52:12.8105723Z }^[[39m
 Lint and production build	Production build	2026-09-25T17:52:12.8778482Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T17:52:12.8792454Z ##[error]Process completed with exit code 1.
+~~~
+
+---
+
+## Failure recorded 2026-09-25T17:52:42Z
+
+### Run metadata
+~~~json
+{"attempt":1,"conclusion":"","createdAt":"2026-09-25T17:52:03Z","databaseId":36169800640,"displayTitle":"Require access codes to match the current season or movie","headSha":"006d03f6c2e6033282cc32f623c277d68dd77c2d","jobs":[],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T17:52:41Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36169800640"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36169800640 is still in progress; logs will be available when it is complete
 ~~~
