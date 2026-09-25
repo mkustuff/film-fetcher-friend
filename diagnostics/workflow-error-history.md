@@ -8711,3 +8711,22 @@ Lint and production build	Production build	2026-09-25T20:47:22.9851873Z ##[error
 ~~~text
 run 36188794217 is still in progress; logs will be available when it is complete
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:58:04Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"failure","createdAt":"2026-09-25T20:57:16Z","databaseId":36188794217,"displayTitle":"fix: replace watch route with provided playback implementation","headSha":"c3ff90f3f356dda037a58d9c393a2d571bb64f87","jobs":[{"completedAt":"2026-09-25T20:57:57Z","conclusion":"failure","databaseId":108248746892,"name":"Lint and production build","startedAt":"2026-09-25T20:57:43Z","status":"completed","steps":[{"completedAt":"2026-09-25T20:57:44Z","conclusion":"success","name":"Set up job","number":1,"startedAt":"2026-09-25T20:57:43Z","status":"completed"},{"completedAt":"2026-09-25T20:57:45Z","conclusion":"success","name":"Checkout","number":2,"startedAt":"2026-09-25T20:57:44Z","status":"completed"},{"completedAt":"2026-09-25T20:57:46Z","conclusion":"success","name":"Setup Bun","number":3,"startedAt":"2026-09-25T20:57:45Z","status":"completed"},{"completedAt":"2026-09-25T20:57:48Z","conclusion":"success","name":"Install dependencies","number":4,"startedAt":"2026-09-25T20:57:46Z","status":"completed"},{"completedAt":"2026-09-25T20:57:55Z","conclusion":"failure","name":"Production build","number":5,"startedAt":"2026-09-25T20:57:48Z","status":"completed"},{"completedAt":"2026-09-25T20:57:55Z","conclusion":"skipped","name":"Post Setup Bun","number":9,"startedAt":"2026-09-25T20:57:55Z","status":"completed"},{"completedAt":"2026-09-25T20:57:55Z","conclusion":"success","name":"Post Checkout","number":10,"startedAt":"2026-09-25T20:57:55Z","status":"completed"},{"completedAt":"2026-09-25T20:57:55Z","conclusion":"success","name":"Complete job","number":11,"startedAt":"2026-09-25T20:57:55Z","status":"completed"}],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36188794217/job/108248746892"}],"name":"Avant Movies CI","status":"completed","updatedAt":"2026-09-25T20:57:57Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36188794217"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36188794217 is still in progress; logs will be available when it is complete
+~~~
