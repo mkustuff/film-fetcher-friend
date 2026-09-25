@@ -7757,3 +7757,22 @@ Lint and production build	Production build	2026-09-25T17:56:38.2229668Z }^[[39m
 Lint and production build	Production build	2026-09-25T17:56:38.2562788Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T17:56:38.2577446Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:24:19Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:23:47Z","databaseId":36185512424,"displayTitle":"fix: close preview JSX branch correctly","headSha":"8c3b9467d2980ad47d55fdb411c14a82422bfb65","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108237936612,"name":"Lint and production build","startedAt":"2026-09-25T20:24:17Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185512424/job/108237936612"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:24:17Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185512424"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36185512424 is still in progress; logs will be available when it is complete
+~~~

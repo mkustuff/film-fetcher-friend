@@ -4,20 +4,12 @@ This repository file keeps previous and current workflow failures together.
 
 ## Current failure
 
-Run ID: 36170156226
+Run ID: 36185512424
 
-Generated: 2026-09-25T17:56:49Z
+Generated: 2026-09-25T20:24:19Z
 
 ### Current primary errors
 ~~~text
-Lint and production build	Production build	2026-09-25T17:56:38.1073829Z Error: Error transforming route file /home/runner/work/film-fetcher-friend/film-fetcher-friend/src/routes/watch.$contentId.tsx: SyntaxError: Unexpected token, expected "}" (51:3972)
-Lint and production build	Production build	2026-09-25T17:56:38.2207767Z ^[[31m✗^[[39m Build failed in 106ms
-Lint and production build	Production build	2026-09-25T17:56:38.2213307Z ^[[31mBuild failed with 1 error:
-Lint and production build	Production build	2026-09-25T17:56:38.2214205Z Error: Crawling result not available
-Lint and production build	Production build	2026-09-25T17:56:38.2219140Z     at aggregateBindingErrorsIntoJsError (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:48:18)
-Lint and production build	Production build	2026-09-25T17:56:38.2220521Z     at unwrapBindingResult (file:///home/runner/work/film-fetcher-friend/film-fetcher-friend/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:18:128)
-Lint and production build	Production build	2026-09-25T17:56:38.2562788Z error: script "build" exited with code 1
-Lint and production build	Production build	2026-09-25T17:56:38.2577446Z ##[error]Process completed with exit code 1.
 ~~~
 
 ## Previous + current error history
@@ -7779,4 +7771,23 @@ Lint and production build	Production build	2026-09-25T17:56:38.2229285Z   errors
 Lint and production build	Production build	2026-09-25T17:56:38.2229668Z }^[[39m
 Lint and production build	Production build	2026-09-25T17:56:38.2562788Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T17:56:38.2577446Z ##[error]Process completed with exit code 1.
+~~~
+
+---
+
+## Failure recorded 2026-09-25T20:24:19Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:23:47Z","databaseId":36185512424,"displayTitle":"fix: close preview JSX branch correctly","headSha":"8c3b9467d2980ad47d55fdb411c14a82422bfb65","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108237936612,"name":"Lint and production build","startedAt":"2026-09-25T20:24:17Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185512424/job/108237936612"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:24:17Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36185512424"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36185512424 is still in progress; logs will be available when it is complete
 ~~~
