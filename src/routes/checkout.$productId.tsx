@@ -3,7 +3,7 @@ import { ArrowLeft, Check, CircleAlert, Clock3, CreditCard, LockKeyhole, Mail, P
 import { useEffect, useMemo, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { broadcastAccessChanged, capturePayPalOrder, clearPlaybackCache, createPayPalOrder, loginWithAccessCode, paymentStatus, publicCatalogue, publicPaymentChannels, reconcilePayments, recoverPayment, resolveCatalogueKey, startPalplussPayment } from '@/lib/avant-backend'
-import { knownProduct, productForLegacyContent } from '@/lib/backend-catalogue-map'
+import { BACKEND_PRODUCT_IDS, knownProduct, productForLegacyContent } from '@/lib/backend-catalogue-map'
 import { optimizedArtwork } from '@/lib/episodes'
 import { customerToken } from '@/lib/google-auth'
 import { normalizePaymentState, paymentStateMessage, type PaymentUiState } from '@/lib/payments/status'
@@ -146,6 +146,24 @@ function CheckoutRoute() {
     return '254' + local.slice(1)
   }
 
+  function playbackTarget() {
+    const productKey = backendProductId || product?.id || productForLegacyContent(productId) || productId
+    if (productKey === BACKEND_PRODUCT_IDS.aBetterLifeSeason2) return '/watch/a-better-life-s2e1'
+    if (productKey === BACKEND_PRODUCT_IDS.aBetterLifeSeason1) return '/watch/a-better-life-1'
+    if (productKey === BACKEND_PRODUCT_IDS.masterclass) return '/watch/jennifer-gatero-writing-masterclass-1'
+    if (productKey === BACKEND_PRODUCT_IDS.thisIsLife) return '/watch/this-is-life-1'
+    if (productKey === BACKEND_PRODUCT_IDS.backToUs) return '/watch/back-to-us'
+    if (productKey === BACKEND_PRODUCT_IDS.nairobby) return '/watch/nairobby'
+    const source = (returnTo || origin || '').trim()
+    const slug = source.match(/\/title\/([^/?#]+)/)?.[1] || purchaseTitle?.slug || ''
+    if (slug === 'a-better-life') return '/watch/a-better-life-1'
+    if (slug === 'this-is-life') return '/watch/this-is-life-1'
+    if (slug === 'jennifer-gatero-writing-masterclass') return '/watch/jennifer-gatero-writing-masterclass-1'
+    if (source.startsWith('/watch/')) return source
+    if (slug) return '/watch/' + slug
+    return source && source.startsWith('/') && !source.startsWith('//') ? source : '/'
+  }
+
   async function verifyAccessCode() {
     const code = accessCode.trim().toUpperCase().replace(/\s/g, '')
     if (!code) { setError('Enter the access code from your Avant payment email.'); return }
@@ -168,12 +186,10 @@ function CheckoutRoute() {
       broadcastAccessChanged({ source: 'access-code-checkout' })
       clearPlaybackCache()
       setAccessCode('')
-      const target = (returnTo || origin || '').trim()
-      if (target && target.startsWith('/') && !target.startsWith('//') && !target.startsWith('/checkout/')) {
-        await router.navigate({ to: target as any })
-      } else {
-        await router.navigate({ to: '/account' })
-      }
+      const target = playbackTarget()
+      setLeaving(true)
+      await new Promise<void>((resolve) => window.setTimeout(resolve, 340))
+      window.location.assign(target)
     } catch (e: any) {
       setError(e?.body?.error || e?.body?.message || e?.message || 'Access code not recognized. Check the code in your payment email.')
     } finally {
