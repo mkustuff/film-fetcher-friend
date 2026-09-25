@@ -8191,3 +8191,22 @@ Lint and production build	Production build	2026-09-25T20:29:41.1325840Z }^[[39m
 Lint and production build	Production build	2026-09-25T20:29:41.1641044Z error: script "build" exited with code 1
 Lint and production build	Production build	2026-09-25T20:29:41.1654753Z ##[error]Process completed with exit code 1.
 ~~~
+
+---
+
+## Failure recorded 2026-09-25T20:32:01Z
+
+### Run metadata
+~~~json
+{"attempt":2,"conclusion":"","createdAt":"2026-09-25T20:31:34Z","databaseId":36186290233,"displayTitle":"fix: stabilize nested preview JSX with explicit fragment","headSha":"87e4d04e5b1330a68299bd289adc429da564c381","jobs":[{"completedAt":"0001-01-01T00:00:00Z","conclusion":"","databaseId":108240437921,"name":"Lint and production build","startedAt":"2026-09-25T20:31:59Z","status":"queued","steps":[],"url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36186290233/job/108240437921"}],"name":"Avant Movies CI","status":"queued","updatedAt":"2026-09-25T20:31:59Z","url":"https://github.com/mkustuff/film-fetcher-friend/actions/runs/36186290233"}
+
+~~~
+
+### Primary errors
+~~~text
+~~~
+
+### Full failed-step log
+~~~text
+run 36186290233 is still in progress; logs will be available when it is complete
+~~~
